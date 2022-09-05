@@ -35,6 +35,7 @@ dependencies:
   data_table_2: ^2.0.3
   firebase_core:
   firebase_storage_web:
+  firebase_messaging_web:
 dev_dependencies:
   flutter_test:
     sdk: flutter
