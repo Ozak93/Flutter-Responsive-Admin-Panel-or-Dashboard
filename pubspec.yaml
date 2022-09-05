@@ -33,7 +33,8 @@ dependencies:
   fl_chart: ^0.55.1
   provider: ^6.0.3
   data_table_2: ^2.0.3
-
+  firebase_core:
+  firebase_storage_web:
 dev_dependencies:
   flutter_test:
     sdk: flutter
