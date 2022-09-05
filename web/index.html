@@ -17,7 +17,15 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-
+  <!-- update the version number as needed -->
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-storage-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-performance-compat.js"></script>
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -55,9 +63,43 @@
 <!-- This script installs service_worker.js to provide PWA functionality to
      application. For more information, see:
      https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+
+<script>
+
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        const firebaseConfig={
+            apiKey: 'AIzaSyDySl9Dz6YdncFAQZUAWaYetAqXCfrm05M',
+    appId: '1:801474362294:web:5bebaf3c25bcc75b8d5f17',
+    messagingSenderId: '801474362294',
+    projectId: 'flutter-dashboard-8916e',
+    authDomain: 'flutter-dashboard-8916e.firebaseapp.com',
+    storageBucket: 'flutter-dashboard-8916e.appspot.com',
+    measurementId: 'G-T1BZKK828K',
+    };
+
+        firebase.initializeApp(firebaseConfig);
+        console.log('app2 is ${app2}');
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+          firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+
+    </script>
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
+       navigator.serviceWorker.register("/firebase-messaging-sw.js");
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
