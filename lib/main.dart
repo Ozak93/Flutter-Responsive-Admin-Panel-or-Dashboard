@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:admin/constants.dart';
 import 'package:admin/controllers/MenuController.dart';
 import 'package:admin/screens/main/main_screen.dart';
@@ -12,6 +14,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  log("firebase is ${Firebase.apps.first.toString()}");
   runApp(MyApp());
 }
 
