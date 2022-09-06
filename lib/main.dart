@@ -11,7 +11,16 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
+}
+
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   var app = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -22,10 +31,16 @@ void main() async {
       .then((value) => log("fcm token: ${value}"));
 
   FirebaseMessaging.onMessage.listen((event) {
-    log("caught fcm msg ${event.toString()}");
+    log("caught fcm fg msg ${event.toString()}");
   });
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
   log("firebase is ${Firebase.apps.first.toString()}");
   log("hello 1");
+  print("hellooo");
+
+  var res = await FirebaseMessaging.instance.requestPermission();
+  print("fb perms req res ${res.toString()}");
   runApp(MyApp());
 }
 
@@ -33,22 +48,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Admin Panel',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        canvasColor: secondaryColor,
-      ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: MainScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MenuController(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Admin Panel',
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: bgColor,
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+              .apply(bodyColor: Colors.white),
+          canvasColor: secondaryColor,
+        ),
+        home: MainScreen(),
       ),
     );
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../testScreen/storageList.dart';
+import '../main_screen.dart';
+
 class SideMenu extends StatelessWidget {
   const SideMenu({
     Key? key,
@@ -15,10 +18,17 @@ class SideMenu extends StatelessWidget {
             child: Image.asset("assets/images/logo.png"),
           ),
           DrawerListTile(
-            title: "Dashboard",
-            svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
-          ),
+              title: "Dashboard",
+              svgSrc: "assets/icons/menu_dashbord.svg",
+              press: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => MainScreen(),
+                  ),
+                  (route) => route == true,
+                );
+                Navigator.of(context);
+              }),
           DrawerListTile(
             title: "Transaction",
             svgSrc: "assets/icons/menu_tran.svg",
@@ -43,6 +53,15 @@ class SideMenu extends StatelessWidget {
             title: "Notification",
             svgSrc: "assets/icons/menu_notification.svg",
             press: () {},
+          ),
+          DrawerListTile(
+            title: "Images",
+            svgSrc: "assets/icons/menu_notification.svg",
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => StorageList(),
+              ));
+            },
           ),
           DrawerListTile(
             title: "Profile",

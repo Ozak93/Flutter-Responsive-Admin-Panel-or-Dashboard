@@ -2,43 +2,43 @@
 <html>
 
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    <!--
+      If you are serving your web app in a path other than the root, change the
+      href value below to reflect the base path you are serving from.
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+      The path provided below has to start and end with a slash "/" in order for
+      it to work correctly.
 
-    Fore more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-  -->
-  <base href="/">
+      Fore more details:
+      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    -->
+    <base href="/">
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-  <!-- update the version number as needed -->
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-auth-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-storage-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-performance-compat.js"></script>
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="admin">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="A new Flutter project.">
+    <!-- update the version number as needed -->
+    <!--  <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
+      &lt;!&ndash; include only the Firebase features as you need &ndash;&gt;
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-auth-compat.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging-compat.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-storage-compat.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config-compat.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/9.9.4/firebase-performance-compat.js"></script>-->
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="admin">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>admin</title>
-  <link rel="manifest" href="manifest.json">
-  <!-- Styling for loading indicator -->
-  <style>
+    <title>admin</title>
+    <link rel="manifest" href="manifest.json">
+    <!-- Styling for loading indicator -->
+    <style>
     .container {
       width: 100vw;
       height: 100vh;
@@ -51,21 +51,64 @@
     .indicator {
       width: 10vw;
     }
-  </style>
+
+    </style>
 
 </head>
 
 <body style="overflow: hidden">
 <!-- Loading Indicator -->
 <div id="loading_container" class="container">
-  <img src="./assets/loading.gif" alt="loading indicator" class="indicator">
+    <img src="./assets/loading.gif" alt="loading indicator" class="indicator">
 </div>
 <!-- This script installs service_worker.js to provide PWA functionality to
      application. For more information, see:
      https://developers.google.com/web/fundamentals/primers/service-workers -->
+<!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
 
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
 
-<script>
+    // Add Firebase products that you want to use
+    import { } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js"
+
+    import { getMessaging,getToken  } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging.js"
+
+    import { } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js"
+
+    import { } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-remote-config.js"
+  const firebaseConfig = {
+    apiKey: "AIzaSyDySl9Dz6YdncFAQZUAWaYetAqXCfrm05M",
+    authDomain: "flutter-dashboard-8916e.firebaseapp.com",
+    projectId: "flutter-dashboard-8916e",
+    storageBucket: "flutter-dashboard-8916e.appspot.com",
+    messagingSenderId: "801474362294",
+    appId: "1:801474362294:web:5bebaf3c25bcc75b8d5f17",
+    measurementId: "G-T1BZKK828K"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const messaging = getMessaging(app);
+
+getToken(messaging, { vapidKey: 'BOkhbcBt40JbBf5mVkYLNa8c83w6F9YwU92o4cj1ekqWTkthmQ5CwEUxER1AvRMg7QwU6AeaniliWUPBoFSKA4Y' }).then((currentToken) => {
+  if (currentToken) {
+  console.log('currenttokenis',currentToken);
+  } else {
+    // Show permission request UI
+    console.log('No registration token available. Request permission to generate one.');
+
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+
+});
+</script>
+<!--
+<<script>
 
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
@@ -79,9 +122,10 @@
     storageBucket: 'flutter-dashboard-8916e.appspot.com',
     measurementId: 'G-T1BZKK828K',
     };
-
-        firebase.initializeApp(firebaseConfig);
+       
+        const app =  firebase.initializeApp(firebaseConfig);
         console.log('app2 is ${app2}');
+        !&#45;&#45;
         // firebase.auth().onAuthStateChanged(user => { });
         // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
         // firebase.firestore().doc('/foo/bar').get().then(() => { });
@@ -94,16 +138,17 @@
         //
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-
-    </script>
+&ndash;&gt;
+    </script>-->
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
-       navigator.serviceWorker.register("/firebase-messaging-sw.js");
+
         navigator.serviceWorker.register('flutter_service_worker.js');
       });
     }
-  </script>
+
+</script>
 <script src="main.dart.js" type="application/javascript"></script>
 <!-- Removes the loading indicator after 10 seconds -->
 <script>
@@ -115,7 +160,8 @@
         }
       }, 10000)
     }
-  </script>
+
+</script>
 </body>
 
 </html>

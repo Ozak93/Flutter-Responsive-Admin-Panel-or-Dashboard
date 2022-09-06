@@ -34,7 +34,7 @@ dependencies:
   provider: ^6.0.3
   data_table_2: ^2.0.3
   firebase_core:
-  firebase_storage_web:
+  firebase_storage:
 
   firebase_messaging: ^13.0.0
 dev_dependencies:

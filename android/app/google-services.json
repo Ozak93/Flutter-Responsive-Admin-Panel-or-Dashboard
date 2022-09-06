@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801474362294",
+    "project_id": "flutter-dashboard-8916e",
+    "storage_bucket": "flutter-dashboard-8916e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801474362294:android:072edb0ab7dae65e8d5f17",
+        "android_client_info": {
+          "package_name": "com.example.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801474362294-qclrv8bqgds9bs99m8ahr7kfa32l6e0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdOMiobzQ2sJodwFvcymQqVvQFKAMDRLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801474362294-qclrv8bqgds9bs99m8ahr7kfa32l6e0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
