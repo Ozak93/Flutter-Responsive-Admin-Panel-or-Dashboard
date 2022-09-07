@@ -36,8 +36,7 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   log("firebase is ${Firebase.apps.first.toString()}");
-  log("hello 1");
-  print("hellooo");
+
 
   var res = await FirebaseMessaging.instance.requestPermission();
   print("fb perms req res ${res.toString()}");
