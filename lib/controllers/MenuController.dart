@@ -10,4 +10,8 @@ class MenuController extends ChangeNotifier {
       _scaffoldKey.currentState!.openDrawer();
     }
   }
+
+  void closeMenu(){
+    _scaffoldKey.currentState!.closeDrawer();
+  }
 }

@@ -1,5 +1,7 @@
+import 'package:admin/controllers/MenuController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../testScreen/storageList.dart';
 import '../main_screen.dart';
@@ -21,13 +23,14 @@ class SideMenu extends StatelessWidget {
               title: "Dashboard",
               svgSrc: "assets/icons/menu_dashbord.svg",
               press: () {
+                Provider.of<MenuController>(context,listen: false).closeMenu();
+
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                     builder: (context) => MainScreen(),
                   ),
                   (route) => route == true,
                 );
-                Navigator.of(context);
               }),
           DrawerListTile(
             title: "Transaction",
